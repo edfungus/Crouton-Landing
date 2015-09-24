@@ -1,0 +1,13 @@
+{
+  "name": "crouton",
+  "version": "1.0.0",
+  "description": "MQTT IOT Dashboard",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "postinstall": "node_modules/.bin/bower install"
+  },
+  "author": "Edmund Fung",
+  "license": "GPL"
+}

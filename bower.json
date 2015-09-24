@@ -1,0 +1,16 @@
+{
+  "name": "Crouton",
+  "version": "1.0.0",
+  "authors": [
+    "Edmund Fung <edfungus@gmail.com>"
+  ],
+  "description": "MQTT IOT Dashboard",
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
