@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    //css import
+    each file in css
+      link(rel='stylesheet', href=file)
+  body(ng-app='Crouton')
+    #crouton-site
+      crouton-nav
+        p this is nav
+      crouton-container
+        p this is crouton
+
+    //js imports
+    //external
+    each file in jsExternal
+      script(src=file)
+    //app
+    each file in jsApp
+      script(src=file)
+    //ui elements
+    each file in jsDashboard
+      script(src=file)    
