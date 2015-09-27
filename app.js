@@ -39,6 +39,7 @@ app.get('/', function (req, res) {
   returnObj.css = [
     '/static/bower/Materialize/dist/css/materialize.min.css',
     '/static/bower/font-awesome/css/font-awesome.min.css',
+    '/static/css/toast-grid.css',
     '/static/css/style.css'
   ];
   returnObj.jsExternal = [
@@ -51,7 +52,6 @@ app.get('/', function (req, res) {
 });
 //templating angular html (jade) files
 app.get('/app-render/*', function (req, res) {
-  console.log(req.params);
   res.render(req.params[0]);
 });
 //404

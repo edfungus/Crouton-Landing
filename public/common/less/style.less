@@ -1,0 +1,165 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+//toast related
+@toast-margin: 20px;
+
+//Nav bar
+@nav-width: 150px;
+@nav-bg: rgb(255,107,107);
+
+//Container
+@container-padding: 40px;
+@container-bg: rgb(229,229,229);
+
+@card-bg: rgb(245,245,245);
+@card-margin-bottom: 20px;
+@card-padding: 40px;
+
+//Font color
+@fc-regular: white;
+@fc-light: rgb(165,165,165);
+
+
+//Shared CSS
+.dropShadow {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.floatMiddle30 {
+  position: relative;
+  top: 30%;
+  transform: translateY(-30%);
+}
+
+
+html, body {
+  font-family: 'Lato', sans-serif;
+}
+
+crouton-nav{
+  width: @nav-width;
+  height: 100vh;
+  position: fixed;
+  background-color: @nav-bg;
+  color: @fc-regular;
+
+  .logo {
+    width: 60px;
+    height: 60px;
+    margin: 0px auto 50px auto;
+
+    .logoBar {
+      height: 15px;
+      width: 100%;
+    }
+
+    .a {
+      background-color: rgb(234,152,131);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .b{
+      background-color: rgb(241,212,175);
+    }
+    .c{
+      background-color: rgb(236,229,206);
+    }
+    .d{
+      background-color: rgb(197,224,220);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .logoBarCover {
+      background-color: rgba(85,98,112,1);
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      z-index: 100;
+      top: 0px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 34px;
+      line-height: 58px;
+    }
+  }
+
+  .navLinks{
+    list-style-type: none;
+    text-align: center;
+    font-weight: lighter;
+
+    li.primary, li.secondary, li.accent {
+      padding: 5px;
+      cursor: pointer;
+      &:hover, &:active {
+        background-color: rgba(0,0,0,.1);
+      }
+    }
+
+    li.secondary {
+      color: rgba(255,255,255,.5);
+    }
+
+    li.blank {
+      height: 22px;
+    }
+
+    li.accent {
+      background-color: rgb(78,205,196);
+    }
+  }
+
+  .footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: lighter;
+
+    .logoText {
+      background-color: rgb(196,77,88);
+      padding: 5px;
+      font-size: 20px;
+      font-weight: normal;
+    }
+  }
+
+}
+
+crouton-container{
+  width: 100%;
+  min-height: 100vh;
+  padding: @container-padding @container-padding;
+  padding-left: @nav-width + @container-padding - @toast-margin;
+  display: inline-block;
+  background-color: @container-bg;
+
+  .grid {
+    margin: 0px;
+    margin-right: @toast-margin;
+  }
+
+  .grid__col--centered {
+    margin-left: @toast-margin;
+  }
+
+  .grid__col{
+    padding-left: 0px;
+    margin-left: @toast-margin;
+  }
+}
+
+crouton-basic-card{
+  background-clip: content-box;
+  background-color: @card-bg;
+  margin-bottom: @card-margin-bottom;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+  .cardInner{
+    padding: @card-padding;
+    p {
+      color: @fc-light;
+      font-weight: lighter;
+    }
+  }
+}
