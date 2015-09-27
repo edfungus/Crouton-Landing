@@ -1,2 +1,5 @@
 div.grid
-  crouton-basic-card(snippet-name='home').grid__col.grid__col--12-of-12
+  span(ng-show="home")
+    crouton-basic-card(snippet-name='home').grid__col.grid__col--12-of-12
+  span(ng-show="gettingStarted")
+    crouton-basic-card(snippet-name='gettingStarted').grid__col.grid__col--12-of-12

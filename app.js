@@ -33,13 +33,13 @@ readdirp({ root: __dirname + '/public/app/dashboard-elements/', fileFilter: '*.j
 /*
 Some routing...may put this in another file later
 */
-app.get('/', function (req, res) {
+app.get(['/','/crouton','/crouton/*'], function (req, res) {
   var returnObj = {};
   returnObj.title = "Crouton";
   returnObj.css = [
     '/static/bower/Materialize/dist/css/materialize.min.css',
     '/static/bower/font-awesome/css/font-awesome.min.css',
-    '/static/css/toast-grid.css',
+    '/static/css/toast.css',
     '/static/css/style.css'
   ];
   returnObj.jsExternal = [
