@@ -4,7 +4,7 @@ app.directive('croutonBasicCard', function () {
 
   var templateBase = '/app-render/snippets/'
 
-  var controller = ['$scope', '$rootScope', function ($scope,$rootScope) {
+  var controller = ['$scope', function ($scope) {
     $scope.template = templateBase + $scope.snippetName + '.jade';
   }];
 

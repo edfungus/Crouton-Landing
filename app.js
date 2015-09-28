@@ -56,7 +56,7 @@ app.get('/app-render/*', function (req, res) {
 });
 //404
 app.use(function(req, res, next) {
-  res.send('Oops, cannot seem to find what you are looking for.');
+  res.redirect('/crouton/404');
 });
 
 /*

@@ -2,14 +2,15 @@ doctype html
 html(lang="en")
   head
     title= title
+    base(href="/crouton")
     //css import
     each file in css
       link(rel='stylesheet', href=file)
   body(ng-app='Crouton')
     #crouton-site
-      crouton-nav 
+      crouton-nav
       crouton-container
-        p this is crouton
+        p crouton is trying to load...
 
     //js imports
     //external

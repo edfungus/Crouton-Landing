@@ -9,10 +9,10 @@ div.floatMiddle30
     div.logoBarCover.dropShadow
       i.fa.fa-cloud
   ul.navLinks
-    li.primary Home
-    li.accent Getting Started
-    li.primary Features
+    li(ng-click="changePage('home')").primary Home
+    li(ng-click="changePage('gettingStarted')").accent Getting Started
+    li(ng-click="changePage('features')").primary Features
     li.primary Demo
     li.blank
-    li.secondary Contact
-    li.secondary Documentation
+    li(ng-click="changePage('contact')").secondary Contact
+    li(ng-click="changePage('documentation')").secondary Documentation
