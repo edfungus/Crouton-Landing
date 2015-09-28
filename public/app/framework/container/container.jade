@@ -1,5 +1,6 @@
 div.grid
   span(ng-if="location.path() == '/crouton/home'")
+    crouton-basic-card(snippet-name='homeBanner').grid__col.grid__col--12-of-12.banner
     crouton-basic-card(snippet-name='home').grid__col.grid__col--12-of-12
 
   span(ng-if="location.path() == '/crouton/gettingStarted'")
@@ -7,6 +8,12 @@ div.grid
 
   span(ng-if="location.path() == '/crouton/features'")
     crouton-basic-card(snippet-name='features').grid__col.grid__col--12-of-12
+
+  span(ng-if="location.path() == '/crouton/about'")
+    crouton-basic-card(snippet-name='about').grid__col.grid__col--12-of-12
+
+  span(ng-if="location.path() == '/crouton/documentation'")
+    crouton-basic-card(snippet-name='documentation').grid__col.grid__col--12-of-12
 
   span(ng-if="location.path() == '/crouton/404'")
     crouton-basic-card(snippet-name='404').grid__col.grid__col--12-of-12

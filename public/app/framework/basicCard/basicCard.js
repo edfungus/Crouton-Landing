@@ -14,6 +14,6 @@ app.directive('croutonBasicCard', function () {
         snippetName: '@'
       },
       controller: controller,
-      template: '<div class="cardInner" ng-include src="template"></div>'
+      template: '<div class="cardInner" ng-include src="template"></div><div class="cardBorder"></div>'
   };
 });

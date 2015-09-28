@@ -9,10 +9,10 @@ div.floatMiddle30
     div.logoBarCover.dropShadow
       i.fa.fa-cloud
   ul.navLinks
-    li(ng-click="changePage('home')").primary Home
-    li(ng-click="changePage('gettingStarted')").accent Getting Started
-    li(ng-click="changePage('features')").primary Features
-    li.primary Demo
+    li(ng-click="changePage('home')" ng-class="{'active':location.path() == '/crouton/home'}").primary Home
+    li(ng-click="changePage('gettingStarted')" ng-class="{'active':location.path() == '/crouton/gettingStarted'}").accent Getting Started
+    li(ng-click="changePage('features')" ng-class="{'active':location.path() == '/crouton/features'}").primary Features
+    li.primary Crouton App
     li.blank
-    li(ng-click="changePage('contact')").secondary Contact
-    li(ng-click="changePage('documentation')").secondary Documentation
+    li(ng-click="changePage('about')" ng-class="{'active':location.path() == '/crouton/about'}").secondary About
+    li(ng-click="changePage('documentation')" ng-class="{'active':location.path() == '/crouton/documentation'}").secondary Documentation

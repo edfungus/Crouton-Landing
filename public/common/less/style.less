@@ -1,11 +1,15 @@
+//color scheme mainly from: http://www.colourlovers.com/palette/1930/cheer_up_emo_kid
+
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
 
 //toast related
 @toast-margin: 20px;
 
 //Nav bar
-@nav-width: 150px;
+@nav-width: 160px;
 @nav-bg: rgb(255,107,107);
+@nav-accent: rgb(78,205,196);
+@nav-accent-hover: rgb(58,185,176);
 
 //Container
 @container-padding: 40px;
@@ -14,10 +18,15 @@
 @card-bg: rgb(250,250,250);
 @card-margin-bottom: 20px;
 @card-padding: 40px;
+@card-border: rgb(199,244,100);
+@card-hr-border: rgb(221,221,221);
+@card-banner: rgb(85,98,112);
 
 //Font color
-@fc-regular: white;
-@fc-light: rgb(165,165,165);
+@fc-light: white;
+@fc-regular: rgb(125,125,125);
+@fc-dark: rgba(0,0,0,.7);
+@fc-accent: rgb(78,205,196);
 
 
 //Shared CSS
@@ -40,7 +49,7 @@ crouton-nav{
   height: 100vh;
   position: fixed;
   background-color: @nav-bg;
-  color: @fc-regular;
+  color: @fc-light;
 
   .logo {
     width: 60px;
@@ -87,24 +96,24 @@ crouton-nav{
     text-align: center;
     font-weight: lighter;
 
-    li.primary, li.secondary, li.accent {
+    li {
       padding: 5px;
       cursor: pointer;
-      &:hover, &:active {
+      &:hover, &.active {
         background-color: rgba(0,0,0,.1);
       }
-    }
-
-    li.secondary {
-      color: rgba(255,255,255,.5);
-    }
-
-    li.blank {
-      height: 22px;
-    }
-
-    li.accent {
-      background-color: rgb(78,205,196);
+      &.secondary {
+        color: rgba(255,255,255,.5);
+      }
+      &.accent {
+        background-color: @nav-accent;
+        &:hover, &.active {
+          background-color: @nav-accent-hover;
+        }
+      }
+      &.blank {
+        height: 22px;
+      }
     }
   }
 
@@ -153,13 +162,85 @@ crouton-basic-card{
   background-clip: content-box;
   background-color: @card-bg;
   margin-bottom: @card-margin-bottom;
+  font-size: 16px;
+  word-wrap: break-word;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+  h1, h2, h3, h4, h5, h6 , p {
+    margin-top: 0px;
+    color: @fc-dark;
+  }
+
+  .cardBorder {
+    height: 10px;
+    background-color: @card-border;
+  }
 
   .cardInner{
     padding: @card-padding;
-    p {
-      color: @fc-light;
+    p, li {
+      color: @fc-regular;
       font-weight: lighter;
+    }
+
+    li {
+      margin-left: 20px;
+    }
+  }
+
+  .header{
+    font-size: 24px;
+    border-bottom: @card-hr-border;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+  }
+
+  .accent, a {
+    color: @fc-accent;
+    text-decoration: none;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .triBannerContainer {
+    text-align: center;
+    margin-right: 0px;
+
+    .triBanner {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      min-width: 200px;
+      max-width: 300px;
+
+      .triBannerInner {
+        margin: 10px;
+        padding: 10px;
+        background-color: @nav-accent;
+        height: 300px;
+        p {
+          color: @fc-light;
+        }
+      }
+    }
+  }
+
+  &.banner {
+    box-shadow: none;
+    background-color: @card-banner;
+
+    .justWhite {
+      color: @fc-light;
+    }
+    .subText {
+      color: rgba(255,255,255,.7);
+      font-size: 48px;
+    }
+    .cardBorder {
+      display: none;
     }
   }
 }
