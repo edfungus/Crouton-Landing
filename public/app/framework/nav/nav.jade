@@ -1,5 +1,5 @@
 div.sidebar(ng-class="{'hidden': !(nav.desktop || nav.showNav)}")
-  div.footer
+  div(ng-if="nav.desktop",).footer
     div.logoText Crouton
   div.floatMiddle30
     div.logo
@@ -14,7 +14,9 @@ div.sidebar(ng-class="{'hidden': !(nav.desktop || nav.showNav)}")
       li(ng-click="changePage('about')" ng-class="{'active':location.path() == '/crouton/about'}").secondary About
       li(ng-click="changePage('documentation')" ng-class="{'active':location.path() == '/crouton/documentation'}").secondary Documentation
 
-div(ng-show="!nav.desktop", ng-style="{bottom: (nav.bottombarBottom + 'px')}", ng-click="showNav()")#bottombar
-  div.logo #[i.fa.fa-bars] #[span.text Crouton]
+div(ng-show="!nav.desktop", ng-click="showNav()")#bottombar
+  div.logo #[span Crouton]
+  div.menuLeft #[i.fa.fa-bars]
+  //div.menuRight #[i.fa.fa-plus]
 
 div.screenOverlay(ng-click="overlayHit()", ng-class="{'hidden': (!(nav.desktop || nav.showNav) || nav.desktop)}")

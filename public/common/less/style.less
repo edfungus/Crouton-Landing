@@ -13,7 +13,8 @@
 @nav-bg: rgb(255,107,107);
 @nav-accent: rgb(78,205,196);
 @nav-accent-hover: rgb(58,185,176);
-@nav-bottom-height: 40px;
+@nav-accent-dark: rgb(196,77,88);
+@nav-bottom-height: 45px;
 
 //Container
 @container-padding: 40px;
@@ -76,6 +77,9 @@ html, body {
   ::-webkit-scrollbar-track {
       background-color: @scroll-track;
   }
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
 }
 
 crouton-nav{
@@ -164,7 +168,7 @@ crouton-nav{
       font-weight: lighter;
 
       .logoText {
-        background-color: rgb(196,77,88);
+        background-color: @nav-accent-dark;
         padding: 5px;
         font-size: 20px;
         font-weight: normal;
@@ -176,27 +180,35 @@ crouton-nav{
     display: none;
     background-color: @nav-bg;
     z-index: 15;
+    display: block;
+    width: 100%;
+    height: @nav-bottom-height;
+    position: fixed;
+    top: 0px;
 
     .logo {
-      background-color: rgb(196,77,88);
       padding: 5px;
       font-size: 22px;
       font-weight: normal;
       color:  @fc-light;
       width: @nav-width;
-      padding-left: 15px;
       height: 100%;
-
-      .text {
-        margin-left: 15px;
-      }
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    @media only screen and (max-width: @screen-mobile) {
-      display: block;
-      //width: 100%;
-      height: @nav-bottom-height + 5;
-      position: fixed;
+    .menuLeft, .menuRight {
+      position: absolute;
+      top: 0;
+      font-size: 22px;
+      color: @fc-light;
+      line-height: 44px;
+    }
+    .menuLeft {
+      left: 30px;
+    }
+    .menuRight {
+      right: 30px;
     }
   }
 }
@@ -233,7 +245,7 @@ crouton-container{
   }
 
   @media only screen and (max-width: @screen-mobile) {
-    padding: 2*@container-padding-mobile @container-padding-mobile @container-padding-mobile @container-padding-mobile;
+    padding: (2*@container-padding-mobile + @nav-bottom-height) @container-padding-mobile @container-padding-mobile @container-padding-mobile;
   }
 }
 
@@ -322,7 +334,7 @@ crouton-basic-card{
   .btn {
     display: table;
     background-color: @nav-accent;
-        
+
     &.center {
       margin-left: auto;
       margin-right: auto;

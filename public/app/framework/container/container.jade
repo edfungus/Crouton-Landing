@@ -10,7 +10,7 @@ div.grid
     crouton-basic-card(snippet-name='features').grid__col.grid__col--12-of-12
 
   span(ng-show="location.path() == '/crouton/demo'")
-    crouton-basic-card(snippet-name='demo').grid__col.grid__col--centered.grid__col--6-of-12
+    crouton-basic-card(snippet-name='demo', ng-class="{'grid__col--centered': nav.desktop}").grid__col.grid__col--6-of-12
 
   span(ng-show="location.path() == '/crouton/about'")
     crouton-basic-card(snippet-name='about').grid__col.grid__col--12-of-12
