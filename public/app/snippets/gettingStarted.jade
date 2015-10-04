@@ -1,22 +1,41 @@
 h4 Getting Started
 
-p.header You will need three things: Crouton, a MQTT broker and a device
+p.header You will need three things: Crouton, your device and a MQTT broker
 
-p It is quite easy to get started. Of the three things needed, we already provide you Crouton which is free to use! There are a variety of ways to get the MQTT Broker and device free or paid. We will help you with them below.
+p It is quite easy to get started. Of the three things needed, we already provide you Crouton which is free to use! Bring along your DIY IOT device and we can show how to get a MQTT broker running below.
 
 p.header Crouton
 
-p Crouton is available either by using the version we are #[a(href="https://github.com/edfungus/Crouton", target="_blank") hosting] (the "Crouton App" link on the right) or if you are adventurous, by downloading the source from #[a(href="https://github.com/edfungus/Crouton", target="_blank") github] and running it on your own server.
-
-p.header MQTT Broker
-
-p something about getting a MQTT broker
+p There are two ways to get Crouton. It is available either by using the version we are #[a(href="https://github.com/edfungus/Crouton", target="_blank") hosting] (the "Crouton App" link on the right) or if you are adventurous, by downloading the source from #[a(href="https://github.com/edfungus/Crouton", target="_blank") github] and running it on your own server.
 
 p.header Devices
 
-p We want you to use your awesome DIY IOT device with Crouton. As long your device can use the MQTT protocol, we support it! Check out the #[a(href="/crouton/documentation") documentation] to get them connected! If you just want to try out Crouton, we have simulated devices with sdflkjsdlfk Her eis pythong file...
+p Bring your awesome DIY IOT device with Crouton! As long your device can use the MQTT protocol, we support it! Check out the #[a(href="/crouton/documentation") documentation] to get your device connected! If you just want to try out Crouton and see it in action, we have a simulated device written in python.
 
-p If you are interested in making your own device, we suggest using the ESP8266 and here are some resources you may want to check out:
-p
-  li sldkfjdslf
-  li sldfkjsdlk
+div.contentBox #[a(href="https://github.com/edfungus/Crouton", target="_blank") computerDevice.py] #[span.sideNote : Simulate device Python script. Required paho-mqtt package.]
+
+p If you are interested in making your own device, we suggest using the ESP8266 or the Raspberry Pi. Here are some resources you may want to check out:
+
+p.noBottonMargin ESP8266 (Wifi Controller + Microcontroller)
+  li #[a(href="https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/using-nodemcu-lua", target="_blank") Adafruit - Getting started with ESP8266 and NodeMCU Lua]
+  li #[a(href="https://github.com/nodemcu/nodemcu-firmware#connect-to-mqtt-broker", target="_blank") NodeMCU Github with starter code]
+  li #[a(href="http://www.esp8266.com/", target="_blank") General ESP8266 Forum]
+
+p.noBottonMargin Raspberry Pi (ARM Mini-computer)
+  li #[a(href="https://www.raspberrypi.org/", target="_blank") Raspberry Pi Home]
+  li #[a(href="https://pypi.python.org/pypi/paho-mqtt/1.1", target="_blank") Python MQTT Library]
+
+p.header MQTT Broker
+
+p The MQTT Broker serves as the main communication channel between your device and Crouton. Currently we do not provide this service; however, there are places online where there are public brokers, free/subscription brokers or run your won broker. While we are not affiliated to any of the options below, any of them should get you up and running.
+
+p.noBottonMargin Public Brokers (free but lacks security):
+  li #[a(href="http://test.mosquitto.org/", target="_blank") Mosquitto.org]
+  li #[a(href="http://www.hivemq.com/try-out/", target="_blank") HiveMQ]
+
+p.noBottonMargin MQTT Services:
+  li #[a(href="http://cloudmqtt.com/", target="_blank") cloudmqtt.com] (does not currently work because the lack of username password support)
+
+p.noBottonMargin Run your own broker:
+  li #[a(href="http://mosquitto.org/", target="_blank") Mosquitto] (#[a(href="http://jpmens.net/2013/09/01/installing-mosquitto-on-a-raspberry-pi/", target="_blank") Mosquitto on Raspberry Pi])
+  li #[a(href="https://github.com/emqtt/emqttd", target="_blank") emqttd]

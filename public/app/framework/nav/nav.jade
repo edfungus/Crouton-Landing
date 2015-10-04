@@ -1,18 +1,20 @@
-div.footer
-  div.logoText Crouton
-div.floatMiddle30
-  div.logo
-    div.logoBar.a
-    div.logoBar.b
-    div.logoBar.c
-    div.logoBar.d
-    div.logoBarCover.dropShadow
-      i.fa.fa-cloud
-  ul.navLinks
-    li(ng-click="changePage('home')" ng-class="{'active':location.path() == '/crouton/home'}").primary Home
-    li(ng-click="changePage('gettingStarted')" ng-class="{'active':location.path() == '/crouton/gettingStarted'}").accent Getting Started
-    li(ng-click="changePage('features')" ng-class="{'active':location.path() == '/crouton/features'}").primary Features
-    li.primary Crouton App
-    li.blank
-    li(ng-click="changePage('about')" ng-class="{'active':location.path() == '/crouton/about'}").secondary About
-    li(ng-click="changePage('documentation')" ng-class="{'active':location.path() == '/crouton/documentation'}").secondary Documentation
+div.sidebar(ng-class="{'hidden': !(nav.desktop || nav.showNav)}")
+  div.footer
+    div.logoText Crouton
+  div.floatMiddle30
+    div.logo
+      div.logoBarCover.dropShadow
+        i.fa.fa-cloud
+    ul.navLinks
+      li(ng-click="changePage('home')" ng-class="{'active':location.path() == '/crouton/home'}").primary Home
+      li(ng-click="changePage('features')" ng-class="{'active':location.path() == '/crouton/features'}").primary Features
+      li(ng-click="changePage('gettingStarted')" ng-class="{'active':location.path() == '/crouton/gettingStarted'}").primary Getting Started
+      li(ng-click="changePage('demo')" ng-class="{'active':location.path() == '/crouton/demo'}").accent Crouton Demo
+      li.blank
+      li(ng-click="changePage('about')" ng-class="{'active':location.path() == '/crouton/about'}").secondary About
+      li(ng-click="changePage('documentation')" ng-class="{'active':location.path() == '/crouton/documentation'}").secondary Documentation
+
+div(ng-show="!nav.desktop", ng-style="{bottom: (nav.bottombarBottom + 'px')}", ng-click="showNav()")#bottombar
+  div.logo #[i.fa.fa-bars] #[span.text Crouton]
+
+div.screenOverlay(ng-click="overlayHit()", ng-class="{'hidden': (!(nav.desktop || nav.showNav) || nav.desktop)}")

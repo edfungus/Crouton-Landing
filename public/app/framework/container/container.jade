@@ -1,18 +1,21 @@
 div.grid
-  span(ng-if="location.path() == '/crouton/home'")
+  span(ng-show="location.path() == '/crouton/home'")
     crouton-basic-card(snippet-name='homeBanner').grid__col.grid__col--12-of-12.banner
     crouton-basic-card(snippet-name='home').grid__col.grid__col--12-of-12
 
-  span(ng-if="location.path() == '/crouton/gettingStarted'")
+  span(ng-show="location.path() == '/crouton/gettingStarted'")
     crouton-basic-card(snippet-name='gettingStarted').grid__col.grid__col--12-of-12
 
-  span(ng-if="location.path() == '/crouton/features'")
+  span(ng-show="location.path() == '/crouton/features'")
     crouton-basic-card(snippet-name='features').grid__col.grid__col--12-of-12
 
-  span(ng-if="location.path() == '/crouton/about'")
+  span(ng-show="location.path() == '/crouton/demo'")
+    crouton-basic-card(snippet-name='demo').grid__col.grid__col--centered.grid__col--6-of-12
+
+  span(ng-show="location.path() == '/crouton/about'")
     crouton-basic-card(snippet-name='about').grid__col.grid__col--12-of-12
 
-  span(ng-if="location.path() == '/crouton/documentation'")
+  span(ng-show="location.path() == '/crouton/documentation'")
     crouton-basic-card(snippet-name='documentation').grid__col.grid__col--12-of-12
 
   span(ng-if="location.path() == '/crouton/404'")

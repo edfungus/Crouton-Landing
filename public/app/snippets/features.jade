@@ -1,2 +1,37 @@
+h4 Features
+
+p.header Dead simple to connect your devices
+p No need to configure #[i anything] on the frontend. Simply pass a JSON description of your device to Crouton and it will dynamically generate the dashboard elements needed for you to control and view your devices! An example JSON for a Crouton with a simple toggle light switch:
+
+div.contentBox
+  code(style='white-space:pre;').
+    {
+        "deviceInfo": {
+            "status": "good",
+            "endPoints": {
+                "Kitchen_light": {
+                    "values": {
+                        "on/off": null
+                    },
+                    "type": "control",
+                    "description": "Main kitchen light",
+                    "ui-type": "simple-button",
+                    "title": "Kitchen Light"
+                }
+            },
+            "description": "I control kitchen devices!"
+        }
+    }
+
+p Want to add another light or expand your device's functionality? No worries! Just add an endpoint entry into your JSON and Crouton will take care of the rest. Check out the #[a(href="/crouton/documentation") documentation] for more details on the device JSON.
+
+p.header Wide range of dashboard elements
+
+p We know there are a wide variety of IOT devices, therefore we have made a wide variety of dashboard elements! Here we will highlight a couple to perk your interest and the full list will be available in the documentation #[a(href="/crouton/documentation") documentation].
+
 p really easy to combine your homebrew IOT devices with awesome dashboard UI elements
 p here we talk about all the cool ui dashboard elements
+
+p.header Custom dashboard elements
+
+p Didn't see a dashboard element that meets your needs? We know that there are unique devices out there that may require a special dashboard display element so we have made it simple for you to develop your own! blksdjflskdfj sdmore stuff here .. boilerplate code???

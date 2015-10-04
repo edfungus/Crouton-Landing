@@ -4,29 +4,39 @@
 
 //toast related
 @toast-margin: 20px;
+@margin-mobile: 5px;
+@scroll-bar: rgb(210,210,210);
+@scroll-track: rgb(165,165,165);
 
 //Nav bar
 @nav-width: 160px;
 @nav-bg: rgb(255,107,107);
 @nav-accent: rgb(78,205,196);
 @nav-accent-hover: rgb(58,185,176);
+@nav-bottom-height: 40px;
 
 //Container
 @container-padding: 40px;
 @container-bg: rgb(229,229,229);
+@container-padding-mobile: 5px;
+
 
 @card-bg: rgb(250,250,250);
 @card-margin-bottom: 20px;
 @card-padding: 40px;
+@card-padding-mobile: 20px;
 @card-border: rgb(199,244,100);
 @card-hr-border: rgb(221,221,221);
 @card-banner: rgb(85,98,112);
 
 //Font color
 @fc-light: white;
-@fc-regular: rgb(125,125,125);
+@fc-regular: rgb(100,100,100);//rgb(125,125,125);
 @fc-dark: rgba(0,0,0,.7);
 @fc-accent: rgb(78,205,196);
+
+//Screen sizes
+@screen-mobile: 668px;
 
 
 //Shared CSS
@@ -38,107 +48,163 @@
   top: 30%;
   transform: translateY(-30%);
 }
-
+.hidden {
+  display: none;
+}
 
 html, body {
   font-family: 'Lato', sans-serif;
+
+  //Some mobile scroll bar shenanigans
+  ::-webkit-scrollbar {
+      -webkit-appearance: none;
+  }
+
+  ::-webkit-scrollbar:vertical {
+      width: 10px;
+  }
+
+  ::-webkit-scrollbar:horizontal {
+      height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background-color: @scroll-bar;
+      border: 2px solid @scroll-bar;
+  }
+
+  ::-webkit-scrollbar-track {
+      background-color: @scroll-track;
+  }
 }
 
 crouton-nav{
-  width: @nav-width;
-  height: 100vh;
-  position: fixed;
-  background-color: @nav-bg;
-  color: @fc-light;
 
-  .logo {
-    width: 60px;
-    height: 60px;
-    margin: 0px auto 50px auto;
-
-    .logoBar {
-      height: 15px;
-      width: 100%;
-    }
-
-    .a {
-      background-color: rgb(234,152,131);
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-    .b{
-      background-color: rgb(241,212,175);
-    }
-    .c{
-      background-color: rgb(236,229,206);
-    }
-    .d{
-      background-color: rgb(197,224,220);
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-    .logoBarCover {
-      background-color: rgba(85,98,112,1);
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      z-index: 100;
-      top: 0px;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 34px;
-      line-height: 58px;
-    }
-  }
-
-  .navLinks{
-    list-style-type: none;
-    text-align: center;
-    font-weight: lighter;
-
-    li {
-      padding: 5px;
-      cursor: pointer;
-      &:hover, &.active {
-        background-color: rgba(0,0,0,.1);
-      }
-      &.secondary {
-        color: rgba(255,255,255,.5);
-      }
-      &.accent {
-        background-color: @nav-accent;
-        &:hover, &.active {
-          background-color: @nav-accent-hover;
-        }
-      }
-      &.blank {
-        height: 22px;
-      }
-    }
-  }
-
-  .footer {
+  .screenOverlay {
     position: absolute;
     width: 100%;
-    bottom: 0;
-    text-align: center;
-    font-size: 14px;
-    font-weight: lighter;
+    height: 100%;
+    z-index: 5;
+  }
 
-    .logoText {
-      background-color: rgb(196,77,88);
-      padding: 5px;
-      font-size: 20px;
-      font-weight: normal;
+  .sidebar {
+    height: 100%;
+    background-color: @nav-bg;
+    width: @nav-width;
+    height: 100vh;
+    position: fixed;
+    color: @fc-light;
+    z-index: 10;
+
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin: 0px auto 50px auto;
+
+      .logoBar {
+        height: 15px;
+        width: 100%;
+      }
+      .logoBarCover {
+        background-color: rgba(85,98,112,1);
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        z-index: 100;
+        top: 0px;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 34px;
+        line-height: 58px;
+      }
+    }
+
+    .navLinks{
+      list-style-type: none;
+      text-align: center;
+      font-weight: lighter;
+
+      li {
+        padding: 5px;
+        cursor: pointer;
+        &:hover, &.active {
+          background-color: rgba(0,0,0,.1);
+        }
+        &.secondary {
+          color: rgba(255,255,255,.5);
+        }
+        &.accent {
+          background-color: @nav-accent;
+          &:hover, &.active {
+            background-color: @nav-accent-hover;
+          }
+        }
+        &.blank {
+          height: 22px;
+        }
+
+        a {
+          color: @fc-light;
+          text-decoration: none;
+        }
+      }
+
+      @media only screen and (max-width: @screen-mobile) {
+        font-size: 16px;
+      }
+    }
+
+    .footer {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      text-align: center;
+      font-size: 14px;
+      font-weight: lighter;
+
+      .logoText {
+        background-color: rgb(196,77,88);
+        padding: 5px;
+        font-size: 20px;
+        font-weight: normal;
+      }
     }
   }
 
+  #bottombar {
+    display: none;
+    background-color: @nav-bg;
+    z-index: 15;
+
+    .logo {
+      background-color: rgb(196,77,88);
+      padding: 5px;
+      font-size: 22px;
+      font-weight: normal;
+      color:  @fc-light;
+      width: @nav-width;
+      padding-left: 15px;
+      height: 100%;
+
+      .text {
+        margin-left: 15px;
+      }
+    }
+
+    @media only screen and (max-width: @screen-mobile) {
+      display: block;
+      //width: 100%;
+      height: @nav-bottom-height + 5;
+      position: fixed;
+    }
+  }
 }
 
 crouton-container{
   width: 100%;
   min-height: 100vh;
-  padding: @container-padding @container-padding;
+  padding: @container-padding;
   padding-left: @nav-width + @container-padding - @toast-margin;
   display: inline-block;
   background-color: @container-bg;
@@ -146,15 +212,28 @@ crouton-container{
   .grid {
     margin: 0px;
     margin-right: @toast-margin;
-  }
 
-  .grid__col--centered {
-    margin-left: @toast-margin;
+    @media only screen and (max-width: @screen-mobile) {
+      margin-right: @margin-mobile;
+      margin-top: @margin-mobile;
+    }
   }
 
   .grid__col{
     padding-left: 0px;
     margin-left: @toast-margin;
+
+    @media only screen and (max-width: @screen-mobile) {
+      margin-left: @margin-mobile;
+    }
+  }
+
+  .grid__col--centered {
+    margin-left: auto;
+  }
+
+  @media only screen and (max-width: @screen-mobile) {
+    padding: 2*@container-padding-mobile @container-padding-mobile @container-padding-mobile @container-padding-mobile;
   }
 }
 
@@ -186,6 +265,10 @@ crouton-basic-card{
     li {
       margin-left: 20px;
     }
+
+    @media only screen and (max-width: @screen-mobile) {
+      padding: @card-padding-mobile;
+    }
   }
 
   .header{
@@ -193,6 +276,10 @@ crouton-basic-card{
     border-bottom: @card-hr-border;
     border-bottom-width: thin;
     border-bottom-style: solid;
+
+    @media only screen and (max-width: @screen-mobile) {
+      font-size: 24px;
+    }
   }
 
   .accent, a {
@@ -202,6 +289,50 @@ crouton-basic-card{
 
   .center {
     text-align: center;
+  }
+
+  .sideNote {
+    color: rgba(255,255,255,.5);
+  }
+
+  .noBottonMargin {
+    margin-bottom: 0px;
+  }
+
+  .contentBox {
+    padding: 20px;
+    background-color: @card-banner;
+    margin-bottom: 16px;
+    color: @fc-light;
+    font-weight: 100;
+    overflow-x: scroll;
+    word-wrap: normal;
+
+    .pushRight {
+      float: right;
+    }
+
+    code {
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+  }
+
+  .btn {
+    display: table;
+    background-color: @nav-accent;
+        
+    &.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &.left {
+      margin-right: auto;
+    }
+    &.right {
+      margin-left: auto;
+    }
   }
 
   .triBannerContainer {
@@ -214,15 +345,47 @@ crouton-basic-card{
       margin-top: 20px;
       margin-bottom: 20px;
       min-width: 200px;
-      max-width: 300px;
+      max-width: 275px;
 
       .triBannerInner {
         margin: 10px;
         padding: 10px;
         background-color: @nav-accent;
+        border: 5px @nav-accent-hover solid;
         height: 300px;
         p {
           color: @fc-light;
+
+          &.sinkBottom {
+            font-size: 17px;
+            margin-top: -10px;
+            @media only screen and (max-width: @screen-mobile) {
+              margin-top: auto;
+              margin-bottom: auto;
+              text-align: right;
+              font-size: 16px;
+              margin-left: 70px;
+              font-weight: normal;
+            }
+          }
+          &.bannerPicture {
+            font-size: 85px;
+            position: relative;
+            top: 20%;
+            transform: translateY(-20%);
+
+            @media only screen and (max-width: @screen-mobile) {
+              top: -12%;
+              transform: translateY(-12%);
+              float: left;
+              margin-bottom: 0px;
+              font-size: 70px;
+            }
+          }
+        }
+
+        @media only screen and (max-width: @screen-mobile) {
+          height: 100px;
         }
       }
     }
@@ -238,9 +401,18 @@ crouton-basic-card{
     .subText {
       color: rgba(255,255,255,.7);
       font-size: 48px;
+
+      @media only screen and (max-width: @screen-mobile) {
+        font-size: 25px;
+      }
     }
     .cardBorder {
       display: none;
     }
+  }
+
+  @media only screen and (max-width: @screen-mobile) {
+    h2 { font-size: 32px;}
+    h4 { font-size: 28px;}
   }
 }
